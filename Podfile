@@ -3,6 +3,6 @@
 
 target 'ViperMediumExample' do
 
-
+pod 'QuickApi'
 
 end

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import QuickApi
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,10 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
-        window?.rootViewController = vc
+        window?.rootViewController = UINavigationController(rootViewController: LocationRouter().controller)
         window?.makeKeyAndVisible()
+        
+        Quick.shared.setApiBaseUrl(url: "https://api.openweathermap.org/data/2.5/")
+        Quick.shared.timeOutTime = 20
         return true
     }
 }
